@@ -31,7 +31,7 @@ app = Flask(__name__,static_folder='./fake_news_detector/dist',static_url_path='
 CORS(app)
 API_URL = "https://api-inference.huggingface.co/models/google/gemma-7b"
 
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": "Bearer <token>"}
 translator=Translator()
 
 
@@ -39,7 +39,7 @@ def to_markdown(text):
   text = text.replace('•', '  *')
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
-genai.configure(api_key=' AIzaSyD9HLV6fF42V8yOHFWk5S9-OJxmMbgpzKE')
+genai.configure(api_key='<token>')
 aimodel = genai.GenerativeModel('gemini-pro')
 
 # @app.after_request
